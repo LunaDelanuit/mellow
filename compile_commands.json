@@ -1,0 +1,46 @@
+[
+  {
+    "file": "input.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ffreestanding",
+      "-fno-stack-protector",
+      "-fpic",
+      "-fshort-wchar",
+      "-mno-red-zone",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-I/usr/include/efi",
+      "-I/usr/include/efi/x86_64",
+      "-c",
+      "input.c",
+      "-o",
+      "../../build/boot/input.o"
+    ],
+    "directory": "/home/luna/Projects/$OS/mellow/src/boot",
+    "output": "../../build/boot/input.o"
+  },
+  {
+    "file": "main.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ffreestanding",
+      "-fno-stack-protector",
+      "-fpic",
+      "-fshort-wchar",
+      "-mno-red-zone",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-I/usr/include/efi",
+      "-I/usr/include/efi/x86_64",
+      "-c",
+      "main.c",
+      "-o",
+      "../../build/boot/main.o"
+    ],
+    "directory": "/home/luna/Projects/$OS/mellow/src/boot",
+    "output": "../../build/boot/main.o"
+  }
+]

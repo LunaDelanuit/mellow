@@ -1,0 +1,5 @@
+# Build-related files and binaries
+/build
+
+# I have no idea why this folder exists
+/.cache
