@@ -1,5 +1,71 @@
 [
   {
+    "file": "bootinfo.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ffreestanding",
+      "-fno-stack-protector",
+      "-fpic",
+      "-fshort-wchar",
+      "-mno-red-zone",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-I/usr/include/efi",
+      "-I/usr/include/efi/x86_64",
+      "-c",
+      "bootinfo.c",
+      "-o",
+      "../../build/boot/bootinfo.o"
+    ],
+    "directory": "/home/luna/Projects/$OS/mellow/src/boot",
+    "output": "../../build/boot/bootinfo.o"
+  },
+  {
+    "file": "elf.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ffreestanding",
+      "-fno-stack-protector",
+      "-fpic",
+      "-fshort-wchar",
+      "-mno-red-zone",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-I/usr/include/efi",
+      "-I/usr/include/efi/x86_64",
+      "-c",
+      "elf.c",
+      "-o",
+      "../../build/boot/elf.o"
+    ],
+    "directory": "/home/luna/Projects/$OS/mellow/src/boot",
+    "output": "../../build/boot/elf.o"
+  },
+  {
+    "file": "filesystem.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ffreestanding",
+      "-fno-stack-protector",
+      "-fpic",
+      "-fshort-wchar",
+      "-mno-red-zone",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-I/usr/include/efi",
+      "-I/usr/include/efi/x86_64",
+      "-c",
+      "filesystem.c",
+      "-o",
+      "../../build/boot/filesystem.o"
+    ],
+    "directory": "/home/luna/Projects/$OS/mellow/src/boot",
+    "output": "../../build/boot/filesystem.o"
+  },
+  {
     "file": "input.c",
     "arguments": [
       "/usr/bin/gcc",
@@ -42,5 +108,45 @@
     ],
     "directory": "/home/luna/Projects/$OS/mellow/src/boot",
     "output": "../../build/boot/main.o"
+  },
+  {
+    "file": "paging.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ffreestanding",
+      "-fno-stack-protector",
+      "-fpic",
+      "-fshort-wchar",
+      "-mno-red-zone",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-I/usr/include/efi",
+      "-I/usr/include/efi/x86_64",
+      "-c",
+      "paging.c",
+      "-o",
+      "../../build/boot/paging.o"
+    ],
+    "directory": "/home/luna/Projects/$OS/mellow/src/boot",
+    "output": "../../build/boot/paging.o"
+  },
+  {
+    "file": "main.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ffreestanding",
+      "-fno-stack-protector",
+      "-mno-red-zone",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-c",
+      "main.c",
+      "-o",
+      "../../build/kernel/main.o"
+    ],
+    "directory": "/home/luna/Projects/$OS/mellow/src/kernel",
+    "output": "../../build/kernel/main.o"
   }
 ]

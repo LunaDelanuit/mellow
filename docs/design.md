@@ -10,7 +10,7 @@ The primary goal of Mellow is to remove the perceived divide between the accessi
 
 Mellow is designed for everyone alike.
 
-It is not intended to be restricted to a particular class of user such as developers, power users, servers, or hobbyists. Its design should therefore accommodate users who have little technical knowledge while still providing the power and control expected by experienced users.
+It is not intended to be restricted to a particular class of user such as developers, power users, servers, or hobbyists. Its design should therefore accommodate users who have little technical knowledge.
 
 ### 3. Design Philosophy
 
@@ -26,13 +26,19 @@ Mellow should be:
 * **Transparent** — the operating system should not unnecessarily hide what it is doing from the user.
 * **Open** — the system should be fully open so that users can inspect and understand how it works.
 
-### 4. Windows and Unix
+### 4. Architectural Approach
 
-Mellow intentionally draws from both Windows and Unix-like operating systems.
+Mellow adopts a **Unix-like core** with **Windows-like accessibility**.
 
-Rather than attempting to reproduce either environment exactly, Mellow aims to combine useful characteristics of both into a single coherent system.
+The kernel is designed around Unix principles: elegant abstractions, composable primitives, and transparent behavior. This provides power and flexibility.
 
-The goal is not simply to make one operating system resemble another. The goal is to provide an environment where familiarity, accessibility, power, and flexibility can coexist.
+The presentation layer (shell, file manager, GUI) is designed around Windows principles: familiar, accessible, and visual. This provides accessibility without sacrificing capability.
+
+This separation of concerns means:
+* Power users can drop to the CLI and use Unix tools
+* Normal users can use the GUI and accomplish everything without touching a terminal
+* Both are first-class ways to interact with the system
+* Neither compromises the other
 
 ### 5. Kernel Philosophy
 
@@ -62,19 +68,30 @@ Even when a user does not understand a technical error themselves, useful and ex
 
 ### 7. Compatibility
 
-Compatibility with existing operating systems and software ecosystems is not currently a primary design goal.
+**POSIX Compatibility** is a primary design goal for Mellow.
 
-However, compatibility should remain a consideration for the future.
+POSIX (Portable Operating System Interface) defines a set of standards for Unix-like operating systems. By targeting POSIX compatibility as a primary goal, Mellow ensures:
 
-Mellow's own architecture and philosophy should be established first rather than allowing compatibility requirements to dictate the fundamental design.
+* Ability to run most Unix and Unix-like software
+* Stability and predictability through adherence to a well-established standard
+* Clear, achievable targets for development
+* A coherent foundation built on proven abstractions
+
+**Linux Compatibility** is not currently a design consideration.
+
+Mellow will not attempt to replicate Linux-specific features or extensions. Linux compatibility may be considered in the future (several years into development), but only after Mellow's own architecture and philosophy are fully established.
+
+**Other Operating System Compatibility** (Windows, macOS, etc.) is not a design goal at the kernel level.
+
+However, compatibility may be provided through userspace layers, translation tools, or future design considerations.
 
 ### 8. Hardware
 
-Mellow's hardware model has not yet been defined.
+Mellow's hardware model is being defined alongside the filesystem hierarchy.
 
-The design of hardware abstractions, device representation, and related mechanisms remains an open design area.
+The design of hardware abstractions, device representation, and related mechanisms remains an active design area.
 
-Also, please read `vfs.md` after this.
+Please read `vfs.md` and `hardware.md` after this.
 
 ### 9. Current Motivation
 
@@ -82,31 +99,30 @@ Mellow is primarily being developed as an exploration of how the traditional div
 
 The intended result is an operating system that combines:
 
-* The familiarity and accessibility commonly associated with Windows
-* The power and flexibility commonly associated with Unix/Linux
-* A consistent and elegant design
+* The familiarity and accessibility commonly associated with Windows (through GUI and userspace tools)
+* The power and flexibility commonly associated with Unix/Linux (through the kernel and CLI)
+* A consistent and elegant design at the architectural level
 * Transparent system behavior
-* A modular architecture
+* A modular architecture where components can be developed independently
 
 Mellow should feel like one operating system rather than a collection of incompatible philosophies.
 
 ### 10. Open Questions
 
-The following areas have not yet been decided:
+The following areas have not yet been fully decided:
 
 * What Mellow considers a process
 * What Mellow considers a program
 * What Mellow considers a file
 * What Mellow considers a device
 * What Mellow considers a user
-* How modules work
-* How hardware is represented
+* How modules work and interact with the kernel
+* How privilege boundaries are enforced
 * How inter-process communication works
-* How memory is managed
-* How storage is represented
-* How the filesystem works
-* How executable programs are represented
-* How the user interacts with the system
-* What compatibility mechanisms Mellow may eventually provide
+* How memory is managed and protected
+* How storage devices are represented and mounted
+* How executable programs are represented and launched
+* How the user interacts with the system (beyond basic CLI/GUI)
+* What userspace compatibility mechanisms Mellow may eventually provide
 
-These should be designed after the fundamental philosophy and terminology of Mellow have been established.
+These should be designed after the fundamental philosophy and terminology of Mellow have been established. Decisions made on these topics must align with the core principles outlined above.
