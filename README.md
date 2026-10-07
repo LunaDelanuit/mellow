@@ -24,6 +24,9 @@ Required build tools:
 * Any GNU/Linux system.
 * GNU C Compiler (GCC)
 * GNU Binutils
+* GNU-EFI
+* GNU mtools
+* dosfstools
 * Xorriso
 
 Optionally:
